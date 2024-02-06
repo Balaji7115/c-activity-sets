@@ -1,0 +1,59 @@
+PS C:\Users\Acer\Documents\c\c-activity-sets\set01> gdb a.exe
+GNU gdb (GDB) 7.6.1
+Copyright (C) 2013 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "mingw32".
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>...
+Reading symbols from C:\Users\Acer\Documents\c\c-activity-sets\set01\a.exe...done.
+(gdb) l
+1
+2       #include <stdio.h>
+3       void input(int *a, int *b);
+4       void add(int a, int b, int *sum);
+5       void output(int a, int b, int sum);
+6       int main() 
+7       {
+8           int num1,num2,sum;
+9           input(&num1,&num2);
+10          add(num1,num2,&sum);
+(gdb) l
+11          output(num2,num1,sum);
+12          return 0;
+13
+14      }
+15      void input(int *a, int *b)
+16      {
+17          printf("Enter the first num:\n");
+18          scanf("%d",a);
+19          printf("Enter the second num:\n");
+20          scanf("%d",b);
+(gdb) l
+21      }
+22      void add(int a, int b, int *sum)
+23      {
+24          *sum=a+b;
+25      }
+26      void output(int a, int b, int sum)
+27      {
+28          printf("\nThe sum of %d and %d is:%d\n",a,b,sum);
+29      }
+(gdb) l
+Line number 30 out of range; problem04.c has 29 lines.
+(gdb) r
+Starting program: C:\Users\Acer\Documents\c\c-activity-sets\set01/a.exe 
+[New Thread 11420.0x12b8]
+[New Thread 11420.0x1488]
+Enter the first num:
+5
+Enter the second num:
+5
+
+The sum of 5 and 5 is:10
+[Inferior 1 (process 11420) exited normally]
+(gdb) s
+The program is not being run.
+(gdb) q
