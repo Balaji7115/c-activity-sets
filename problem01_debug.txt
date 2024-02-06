@@ -1,0 +1,31 @@
+PS C:\Users\Acer\Documents\c\c-activity-sets\set01> gcc -g -O0 problem01.c
+PS C:\Users\Acer\Documents\c\c-activity-sets\set01> gdb a.exe
+GNU gdb (GDB) 7.6.1
+Copyright (C) 2013 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "mingw32".
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>...
+Reading symbols from C:\Users\Acer\Documents\c\c-activity-sets\set01\a.exe...done.
+(gdb) l   
+1       // 1. Write a C program to print your name.
+2
+3       #include<stdio.h>
+4       int main()
+5       {
+6           printf("balaji");
+7           return 0;
+8
+9       }
+(gdb) r
+Starting program: C:\Users\Acer\Documents\c\c-activity-sets\set01/a.exe 
+[New Thread 9776.0x25f4]
+[New Thread 9776.0x2704]
+balaji[Inferior 1 (process 9776) exited normally]
+(gdb) s
+The program is not being run.
+(gdb) q
+
