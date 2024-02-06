@@ -1,4 +1,4 @@
-#include <stdio.h>4
+#include <stdio.h>
 
 int input();
 int add(int a, int b,int sum);
