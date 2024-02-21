@@ -1,14 +1,15 @@
-#include <stdio.h>4
+#include <stdio.h>
 
 int input();
-int add(int a, int b,int sum);
+int add(int a, int b);
 void output(int a, int b, int sum);
 int main()
 {
-    int a,b,sum;
+    int a,b;
+    int sum;
     a=input();
     b=input();
-    sum=add(a,b,sum);
+    sum=add(a,b);
     output(a,b,sum);
     return 0;
 }
@@ -20,12 +21,13 @@ scanf("%d",&num);
 return num;
 }
 
-int add(int a, int b,int sum)
+int add(int a, int b)
 {
+    int sum;
 sum=a+b;
 return sum;
 }
 void output(int a, int b, int sum)
 {
-    printf("the sum is %d\n",sum);
+    printf("the sum is %d\n",sum);
 }

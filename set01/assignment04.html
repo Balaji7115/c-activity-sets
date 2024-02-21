@@ -1,0 +1,16 @@
+<script>
+// Function to calculate sum of natural numbers up to a given limit
+function sumOfNaturalNumbers(limit) {
+    let sum = 0;
+    // Iterate through natural numbers up to the limit
+    for (let i = 1; i <= limit; i++) {
+        sum += i; // Add the current number to the sum
+    }
+    return sum;
+}
+
+//  Calculate sum of natural numbers up to 7
+let limit = 7;
+let result = sumOfNaturalNumbers(limit);
+console.log("Sum of natural numbers up to", limit, "is:", result);
+</script>
