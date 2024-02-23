@@ -1,37 +1,47 @@
 #include <stdio.h>
 
-int main(void) {
+struct _complex {
+    float real;
+    float imaginary;
+};
 
-int i;
-char ch1[100],ch2[100];
+typedef struct _complex Complex;
 
-  printf("enter the first string:\n");
-scanf("%s",&ch1);
-
-  printf("enter the second string:\n");
-  scanf("%s",&ch2);
-
-
-for(int i=0 ;ch1[i] == ch2[i]&&ch1[i]!='\0'&&ch2[i]!='\0';i++);
-
-if(ch1[i]>ch2[i])
-{
-printf("%s is greater\n",ch1);
-  return 0;
-  
+Complex input_complex() {
+    Complex c;
+    printf("Enter real part: ");
+    scanf("%f", &c.real);
+    printf("Enter imaginary part: ");
+    scanf("%f", &c.imaginary);
+    return c;
 }
 
-  if(ch2[i]>ch1[i])
-  {
-  printf("%s is greater\n",ch1);
+Complex add_complex(Complex a, Complex b) {
+    Complex sum;
+    sum.real = a.real + b.real;
+    sum.imaginary = a.imaginary + b.imaginary;
+    return sum;
+}
+
+void output(Complex a, Complex b, Complex sum) {
+    printf("Complex A: %.2f + %.2fi\n", a.real, a.imaginary);
+    printf("Complex B: %.2f + %.2fi\n", b.real, b.imaginary);
+    printf("Sum: %.2f + %.2fi\n", sum.real, sum.imaginary);
+}
+
+int main() {
+    Complex complexA, complexB, result;
+
+    printf("Enter values for Complex A:\n");
+    complexA = input_complex();
+
+    printf("Enter values for Complex B:\n");
+    complexB = input_complex();
+
+    result = add_complex(complexA, complexB);
+
+    printf("Result:\n");
+    output(complexA, complexB, result);
+
     return 0;
-
-  }
-
-  else
-  {
-    printf("strings are equal\n");
-  }
-
-  return 0;
 }
