@@ -1,0 +1,70 @@
+PS C:\Users\Acer\Documents\c\c-activity-sets\c-activity-sets\set02> gcc -g -O0 problem03.c
+PS C:\Users\Acer\Documents\c\c-activity-sets\c-activity-sets\set02> gdb a.exe
+GNU gdb (GDB) 7.6.1
+Copyright (C) 2013 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "mingw32".
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>...
+Reading symbols from C:\Users\Acer\Documents\c\c-activity-sets\c-activity-sets\set02\a.exe...done.
+(gdb) r
+Starting program: C:\Users\Acer\Documents\c\c-activity-sets\c-activity-sets\set02/a.exe 
+[New Thread 1180.0x2a0c]
+[New Thread 1180.0x32b0]
+Enter a number: 8
+8 is a composite number.
+[Inferior 1 (process 1180) exited normally]
+(gdb) l
+1       #include <stdio.h>
+2
+3       int input_number();
+4       int is_composite(int n);
+5       void output(int n, int result);
+6
+7       int main() {
+8           int number, result;
+9           
+10          number = input_number();
+(gdb) l
+11          result = is_composite(number);
+12          output(number, result);
+13
+14          return 0;
+15      }
+16
+17      int input_number() {
+18          int n;
+19          printf("Enter a number: ");
+20          scanf("%d", &n);
+(gdb) l
+21          return n;
+22      }
+23
+24      int is_composite(int n) {
+25          int factors = 0;
+26
+27          for (int i = 1; i <= n; ++i) {
+28              if (n % i == 0) {
+29                  factors++;
+30              }
+(gdb) l
+31          }
+32
+33          if (factors > 2)
+34              return 1; // Composite
+35          else
+36              return 0; // Not Composite
+37      }
+38
+39      void output(int n, int result) {
+40          if (result)
+(gdb) l
+41              printf("%d is a composite number.\n", n);
+42          else
+43              printf("%d is not a composite number.\n", n);
+44      }
+(gdb) q
+PS C:\Users\Acer\Documents\c\c-activity-sets\c-activity-sets\set02> 
