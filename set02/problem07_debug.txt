@@ -1,0 +1,68 @@
+PS C:\Users\Acer\Documents\c\c-activity-sets\c-activity-sets\set02> gcc -g -O0 problem07.c
+PS C:\Users\Acer\Documents\c\c-activity-sets\c-activity-sets\set02> gdb a.exe
+GNU gdb (GDB) 7.6.1
+Copyright (C) 2013 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "mingw32".
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>...
+Reading symbols from C:\Users\Acer\Documents\c\c-activity-sets\c-activity-sets\set02\a.exe...done.
+(gdb) r
+Starting program: C:\Users\Acer\Documents\c\c-activity-sets\c-activity-sets\set02/a.exe 
+[New Thread 9048.0x3adc]
+[New Thread 9048.0x1fec]
+Enter the base of the triangle: 2
+Enter the altitude of the triangle: 3
+Base: 2.00
+Altitude: 3.00
+Area of the triangle: 3.00
+[Inferior 1 (process 9048) exited normally]
+(gdb) l
+5       } Triangle;
+6
+7       Triangle input_triangle();
+8       void find_area(Triangle *t);
+9       void output(Triangle t);
+10
+11      int main() {
+12          Triangle t;
+13
+14          t = input_triangle();
+(gdb) l
+15          find_area(&t);
+16          output(t);
+17
+18          return 0;
+19      }
+20
+21      Triangle input_triangle() {
+22          Triangle t;
+23          printf("Enter the base of the triangle: ");
+24          scanf("%f", &t.base);
+(gdb) l
+25
+26          printf("Enter the altitude of the triangle: ");
+27          scanf("%f", &t.altitude);
+28
+29          return t;
+30      }
+31
+32      void find_area(Triangle *t) {
+33          t->area = 0.5 * t->base * t->altitude;
+34      }
+(gdb) l
+35
+36      void output(Triangle t) {
+37          printf("Base: %.2f\n", t.base);
+38          printf("Altitude: %.2f\n", t.altitude);
+39          printf("Area of the triangle: %.2f\n", t.area);
+40      }
+41
+42
+(gdb) l
+Line number 43 out of range; problem07.c has 42 lines.
+(gdb) q
+PS C:\Users\Acer\Documents\c\c-activity-sets\c-activity-sets\set02> 
