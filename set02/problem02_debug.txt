@@ -1,0 +1,79 @@
+PS C:\Users\Acer\Documents\c\c-activity-sets\c-activity-sets\set02> gcc -g -O0 problem02.c
+PS C:\Users\Acer\Documents\c\c-activity-sets\c-activity-sets\set02> gdb a.exe
+GNU gdb (GDB) 7.6.1
+Copyright (C) 2013 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "mingw32".
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>...
+Reading symbols from C:\Users\Acer\Documents\c\c-activity-sets\c-activity-sets\set02\a.exe...done.
+(gdb) gdb r
+Undefined command: "gdb".  Try "help".
+(gdb) r
+Starting program: C:\Users\Acer\Documents\c\c-activity-sets\c-activity-sets\set02/a.exe 
+[New Thread 11132.0x19b8]
+[New Thread 11132.0x1610]
+Enter the length of a side: 5
+Enter the length of a side: 4
+Enter the length of a side: 5
+Side 1: 5
+Side 2: 4
+Side 3: 5
+The triangle is not scalene.
+[Inferior 1 (process 11132) exited normally]
+(gdb) l
+1       #include <stdio.h>
+2
+3       int input_side();
+4       int check_scalene(int a, int b, int c);
+5       void output(int a, int b, int c, int is_scalene);
+6
+7       int main() {
+8           int side1, side2, side3, is_scalene;
+9
+10          side1 = input_side();
+(gdb) l
+11          side2 = input_side();
+12          side3 = input_side();
+13
+14          is_scalene = check_scalene(side1, side2, side3);
+15
+16          output(side1, side2, side3, is_scalene);
+17
+18          return 0;
+19      }
+20
+(gdb) l
+21      int input_side() {
+22          int side;
+23          printf("Enter the length of a side: ");
+24          scanf("%d", &side);
+25          return side;
+26      }
+27
+28      int check_scalene(int a, int b, int c) {
+29          if (a != b && b != c && a != c)
+30              return 1; 
+(gdb) l
+31          else
+32              return 0;
+33      }
+34
+35      void output(int a, int b, int c, int is_scalene) {
+36          printf("Side 1: %d\n", a);
+37          printf("Side 2: %d\n", b);
+38          printf("Side 3: %d\n", c);
+39
+40          if (is_scalene)
+(gdb) l
+41              printf("The triangle is scalene.\n");
+42          else
+43              printf("The triangle is not scalene.\n");
+44      }
+(gdb) l
+Line number 45 out of range; problem02.c has 44 lines.
+(gdb) q
+PS C:\Users\Acer\Documents\c\c-activity-sets\c-activity-sets\set02> 
