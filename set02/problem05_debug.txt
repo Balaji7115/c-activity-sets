@@ -1,0 +1,67 @@
+PS C:\Users\Acer\Documents\c\c-activity-sets\c-activity-sets\set02> gcc -g -O0 problem05.c
+PS C:\Users\Acer\Documents\c\c-activity-sets\c-activity-sets\set02> gdb a.exe
+GNU gdb (GDB) 7.6.1
+Copyright (C) 2013 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "mingw32".
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>...
+Reading symbols from C:\Users\Acer\Documents\c\c-activity-sets\c-activity-sets\set02\a.exe...done.
+(gdb) r
+Starting program: C:\Users\Acer\Documents\c\c-activity-sets\c-activity-sets\set02/a.exe 
+[New Thread 10280.0x393c]
+[New Thread 10280.0x18f8]
+Enter a number: 12
+Enter a number: 16
+GCD of 12 and 16 is: 4
+[Inferior 1 (process 10280) exited normally]
+(gdb) l
+1       #include <stdio.h>
+2
+3       int input();
+4       int find_gcd(int a, int b);
+5       void output(int a, int b, int gcd);
+6
+7       int main() {
+8           int num1, num2, gcd;
+9
+10          num1 = input();
+(gdb) l
+11          num2 = input();
+12
+13          gcd = find_gcd(num1, num2);
+14
+15          output(num1, num2, gcd);
+16
+17          return 0;
+18      }
+19
+20      int input() {
+(gdb) l
+21          int num;
+22          printf("Enter a number: ");
+23          scanf("%d", &num);
+24          return num;
+25      }
+26
+27      int find_gcd(int a, int b) {
+28          int remainder;
+29          while (b != 0) {
+30              remainder = a % b;
+(gdb) l
+31              a = b;
+32              b = remainder;
+33          }
+34          return a;
+35      }
+36
+37      void output(int a, int b, int gcd) {
+38          printf("GCD of %d and %d is: %d\n", a, b, gcd);
+39      }
+(gdb) l
+Line number 40 out of range; problem05.c has 39 lines.
+(gdb) q
+PS C:\Users\Acer\Documents\c\c-activity-sets\c-activity-sets\set02> 
