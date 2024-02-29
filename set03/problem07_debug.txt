@@ -1,0 +1,77 @@
+PS C:\Users\Acer\Documents\c\c-activity-sets\c-activity-sets\set03> gcc -g -O0 problem07.c
+PS C:\Users\Acer\Documents\c\c-activity-sets\c-activity-sets\set03> gdb a.exe
+GNU gdb (GDB) 7.6.1
+Copyright (C) 2013 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "mingw32".
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>...
+Reading symbols from C:\Users\Acer\Documents\c\c-activity-sets\c-activity-sets\set03\a.exe...done.
+(gdb) r
+Starting program: C:\Users\Acer\Documents\c\c-activity-sets\c-activity-sets\set03/a.exe 
+[New Thread 10720.0x2418]
+[New Thread 10720.0x1110]
+Enter coordinates of point 1:
+Enter x-coordinate: 1
+Enter y-coordinate: 1
+Enter coordinates of point 2:
+Enter x-coordinate: 2
+Enter y-coordinate: 2
+Length of the line between (1.00, 1.00) and (2.00, 2.00) is 1.41
+[Inferior 1 (process 10720) exited normally]
+(gdb) l
+11      } Line;
+12
+13      Point input_point();
+14      Line input_line();
+15      void find_length(Line *l);
+16      void output(Line l);
+17
+18      int main() {
+19
+20          Line line = input_line();
+(gdb) l
+21
+22          find_length(&line);
+23
+24          output(line);
+25
+26          return 0;
+27      }
+28
+29      Point input_point() {
+30          Point p;
+(gdb) l
+31          printf("Enter x-coordinate: ");
+32          scanf("%f", &p.x);
+33          printf("Enter y-coordinate: ");
+34          scanf("%f", &p.y);
+35          return p;
+36      }
+37
+38      Line input_line() {
+39          Line l;
+40          printf("Enter coordinates of point 1:\n");
+(gdb) l
+41          l.p1 = input_point();
+42          printf("Enter coordinates of point 2:\n");
+43          l.p2 = input_point();
+44          return l;
+45      }
+46
+47      void find_length(Line *l) {
+48          l->distance = sqrt(pow((l->p2.x - l->p1.x), 2) + pow((l->p2.y - l->p1.y), 2));
+49      }
+50
+(gdb) l
+51      void output(Line l) {
+52          printf("Length of the line between (%.2f, %.2f) and (%.2f, %.2f) is %.2f\n",
+53                 l.p1.x, l.p1.y, l.p2.x, l.p2.y, l.distance);
+54      }
+(gdb) l
+Line number 55 out of range; problem07.c has 54 lines.
+(gdb) q
+PS C:\Users\Acer\Documents\c\c-activity-sets\c-activity-sets\set03> 
