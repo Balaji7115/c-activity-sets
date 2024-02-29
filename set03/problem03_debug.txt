@@ -1,0 +1,68 @@
+PS C:\Users\Acer\Documents\c\c-activity-sets\c-activity-sets\set03> gcc -g -O0 problem03.c
+PS C:\Users\Acer\Documents\c\c-activity-sets\c-activity-sets\set03> gdb a.exe
+GNU gdb (GDB) 7.6.1
+Copyright (C) 2013 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "mingw32".
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>...
+Reading symbols from C:\Users\Acer\Documents\c\c-activity-sets\c-activity-sets\set03\a.exe...done.
+(gdb) r
+Starting program: C:\Users\Acer\Documents\c\c-activity-sets\c-activity-sets\set03/a.exe 
+[New Thread 13564.0x30bc]
+[New Thread 13564.0x3118]
+Enter a number: 3
+3 is a prime number.
+[Inferior 1 (process 13564) exited normally]
+(gdb) l
+1       #include <stdio.h>
+2
+3       int input_number();
+4       int is_prime(int n);
+5       void output(int n, int result);
+6
+7       int main() {
+8           int number, result;
+9
+10          number = input_number();
+(gdb) l
+11
+12          result = is_prime(number);
+13
+14          output(number, result);
+15
+16          return 0;
+17      }
+18
+19      int input_number() {
+20          int num;
+(gdb) l
+21          printf("Enter a number: ");
+22          scanf("%d", &num);
+23          return num;
+24      }
+25
+26      int is_prime(int n) {
+27          if (n <= 1)
+28              return 0;
+29          for (int i = 2; i * i <= n; i++) {
+30              if (n % i == 0)
+(gdb) l
+31                  return 0; 
+32          }
+33          return 1;
+34      }
+35
+36
+37      void output(int n, int result) {
+38          if (result)
+39              printf("%d is a prime number.\n", n);
+40          else
+(gdb) l
+41              printf("%d is not a prime number.\n", n);
+42      }
+(gdb) q
+PS C:\Users\Acer\Documents\c\c-activity-sets\c-activity-sets\set03> 
