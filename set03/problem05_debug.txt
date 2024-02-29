@@ -1,0 +1,87 @@
+PS C:\Users\Acer\Documents\c\c-activity-sets\c-activity-sets\set03> gcc -g -O0 problem05.c
+PS C:\Users\Acer\Documents\c\c-activity-sets\c-activity-sets\set03> gdb a.exe
+GNU gdb (GDB) 7.6.1
+Copyright (C) 2013 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "mingw32".
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>...
+Reading symbols from C:\Users\Acer\Documents\c\c-activity-sets\c-activity-sets\set03\a.exe...done.
+(gdb) r
+Starting program: C:\Users\Acer\Documents\c\c-activity-sets\c-activity-sets\set03/a.exe 
+[New Thread 8652.0x30b4]
+[New Thread 8652.0x316c]
+Enter the value of n: 35
+Prime numbers between 2 and 35 are:
+2 3 5 7 11 13 17 19 23 29 31
+[Inferior 1 (process 8652) exited normally]
+(gdb) l
+3
+4       int input_array_size();
+5       void init_array(int n, int a[]);
+6       void eratosthenes_sieve(int n, int a[]);
+7       void output(int n, int a[]);
+8
+9       int main() {
+10          int n;
+11
+12          n = input_array_size();
+(gdb) l
+13
+14          int *array = (int *)malloc((n + 1) * sizeof(int));
+15          if (array == NULL) {
+16              printf("Memory allocation failed.\n");
+17              return 1;
+18          }
+19          init_array(n, array);
+20
+21          eratosthenes_sieve(n, array);
+22
+(gdb) l
+23          output(n, array);
+24
+25          free(array);
+26
+27          return 0;
+28      }
+29
+30      int input_array_size() {
+31          int n;
+32          printf("Enter the value of n: ");
+(gdb) l
+33          scanf("%d", &n);
+34          return n;
+35      }
+36
+37      void init_array(int n, int a[]) {
+38          for (int i = 2; i <= n; i++) {
+39              a[i] = i;
+40          }
+41      }
+42
+(gdb) l
+43      void eratosthenes_sieve(int n, int a[]) {
+44          for (int i = 2; i * i <= n; i++) {
+45              if (a[i] != 0) {
+46                  for (int j = i * i; j <= n; j += i) {
+47                      a[j] = 0;
+48                  }
+49              }
+50          }
+51      }
+52
+(gdb) l
+53      void output(int n, int a[]) {
+54          printf("Prime numbers between 2 and %d are:\n", n);
+55          for (int i = 2; i <= n; i++) {
+56              if (a[i] != 0) {
+57                  printf("%d ", a[i]);
+58              }
+59          }
+60          printf("\n");
+61      }
+(gdb) q
+PS C:\Users\Acer\Documents\c\c-activity-sets\c-activity-sets\set03> 
