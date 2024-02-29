@@ -1,0 +1,67 @@
+PS C:\Users\Acer\Documents\c\c-activity-sets\c-activity-sets\set03> gcc -g -O0 problem04.c
+PS C:\Users\Acer\Documents\c\c-activity-sets\c-activity-sets\set03> gdb a.exe
+GNU gdb (GDB) 7.6.1
+Copyright (C) 2013 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "mingw32".
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>...
+Reading symbols from C:\Users\Acer\Documents\c\c-activity-sets\c-activity-sets\set03\a.exe...done.
+(gdb) r
+Starting program: C:\Users\Acer\Documents\c\c-activity-sets\c-activity-sets\set03/a.exe 
+[New Thread 14220.0x1df4]
+[New Thread 14220.0x2920]
+Enter the value of n: 5
+The 5th number in the Fibonacci sequence is: 5
+[Inferior 1 (process 14220) exited normally]
+(gdb) l
+1       #include <stdio.h>
+2
+3       int input();
+4       int find_fibo(int n);
+5       void output(int n, int fibo);
+6
+7       int main() {
+8           int n, fibo;
+9
+10          n = input();
+(gdb) l
+11
+12          fibo = find_fibo(n);
+13
+14          output(n, fibo);
+15
+16          return 0;
+17      }
+18
+19      int input() {
+20          int n;
+(gdb) l
+21          printf("Enter the value of n: ");
+22          scanf("%d", &n);
+23          return n;
+24      }
+25
+26      int find_fibo(int n) {
+27          if (n <= 1)
+28              return n;
+29
+30          int a = 0, b = 1, next;
+(gdb) l
+31          for (int i = 2; i <= n; i++) {
+32              next = a + b;
+33              a = b;
+34              b = next;
+35          }
+36          return b;
+37      }
+38
+39      void output(int n, int fibo) {
+40          printf("The %dth number in the Fibonacci sequence is: %d\n", n, fibo);
+(gdb) l
+41      }
+(gdb) q 
+PS C:\Users\Acer\Documents\c\c-activity-sets\c-activity-sets\set03> 
