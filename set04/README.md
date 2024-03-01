@@ -1,6 +1,5 @@
 # Set 04
-
-1. Write a program to find sum of two fractions
+ Write a program to find sum of two fractions
 
 ***Function Declarations***
 ```c
@@ -9,6 +8,7 @@ void add(int num1, int den1, int num2, int den2, int *res_num, int *res_den);
 void output(int num1, int den1, int num2, int den2, int res_num, int res_den);
 ```
 
+1.
 ***Input***
 ```
 1 4
